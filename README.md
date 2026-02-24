@@ -4,28 +4,65 @@
 
 ## Architecture Structure
 
-Here's an overview of the project's folder structure and the purpose of each directory:
+- Architectural structure of the starter kit.
 
 ### Root Directory
 
-- **.env.* files**: Environment-specific configuration files (local, staging, production).
-- **vite.config.ts**: Vite configuration.
-- **tsconfig.json**: TypeScript configuration.
-- **eslint.config.js**: Linting configuration.
+- **.env.\* files**: Environment configuration files (local, staging, production).
 
 ### Source Directory (`src/`)
 
-The source code is organized into the following directories:
+The source code follows a **modular architecture** organized by features
 
-- **`api/`**: Contains API integration logic (e.g., Axios instance setup, API endpoints and token storage and renewal logic).
-- **`assets/`**: Stores static assets such as images, fonts, and icons.
-- **`components/`**: Reusable UI components.
-- **`components/layouts`**: Home for layout. components (e.g Header, Footer, Sidebar).
-- **`components/common`**: Home for common reusable ui components (e.g Button, Input, Modal).
-- **`hooks/`**: Custom React hooks for sharing logic across components.
-- **`pages/`**: Application pages/routes. Each file here typically corresponds to a route.
-- **`services/`**: Home for Api endpoints and logic.
-- **`styles/`**: Global styles and CSS configuration.
-- **`utils/`**: Helper functions, constants, and configuration files (e.g., `config.ts`).
-- **`App.tsx`**: The main application component.
+#### `app/` — App Bootstrap & Global Config
+
+- **`App.tsx`**: The root application component.
 - **`main.tsx`**: The entry point of the application.
+- **`routes.tsx`**: Centralized route definitions.
+- **`providers/`**: Global providers (React Query, Theme, Store).
+- **`router/`**: App-level router setup.
+
+#### `modules/` — Feature-Based Modules
+
+Each module is a feature with its own pages, components, hooks, API layer, and utilities:
+
+- **`auth/`**: Authentication feature (login, register, forgot password).
+- **`dashboard/`**: Dashboard feature.
+- **`wallet/`**: Wallet feature.
+
+Each module follows this internal structure:
+
+```bash
+module/
+├── pages/          # Route-level page components
+├── components/     # Module-specific UI components
+├── layouts/        # Module-specific layouts
+├── hooks/          # Module-specific custom hooks
+├── api/            # API calls and types for this module
+├── utils/          # Module-specific utilities
+└── index.ts        # Public exports (barrel file)
+```
+
+#### `shared/` — Reusable Across Modules
+
+Contains reusable code that is shared across multiple feature modules:
+
+- **`components/common/`**: Generic UI components (Button, Input, Modal).
+- **`components/layout/`**: Layout components (AppShell, Sidebar, PageContainer).
+- **`components/feedback/`**: Feedback components (Spinner, ErrorState).
+- **`hooks/`**: Shared custom hooks (useDebounce, usePagination, etc.).
+- **`api/`**: Base API client, Axios instance, interceptors, and query keys.
+- **`constants/`**: App-wide constants.
+- **`types/`**: Global TypeScript types.
+- **`utils/`**: Shared utility functions.
+- **`config/`**: Environment and app configuration.
+
+#### `assets/` — Static Assets
+
+- **`images/`**: Image files.
+- **`icons/`**: Icon files.
+
+#### `styles/` — Global Styles
+
+- **`globals.css`**: Global stylesheet and CSS configuration.
+- **`variables.css`**: CSS custom properties / design tokens.
