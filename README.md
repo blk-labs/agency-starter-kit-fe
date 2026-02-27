@@ -66,3 +66,5 @@ Contains reusable code that is shared across multiple feature modules:
 
 - **`globals.css`**: Global stylesheet and CSS configuration.
 - **`variables.css`**: CSS custom properties / design tokens.
+
+
