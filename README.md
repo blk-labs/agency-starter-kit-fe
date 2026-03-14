@@ -67,6 +67,7 @@ Contains reusable code that is shared across multiple feature modules:
 - **`globals.css`**: Global stylesheet and CSS configuration.
 - **`variables.css`**: CSS custom properties / design tokens.
 
+
 ## Commit Format
 
 Used **Husky**, **lint-staged**, and **Commitlint** to ensure high code quality and clear version history. Every commit must follow the [Conventional Commits](https://www.conventionalcommits.org/) format. If the commit message does not match these rules, the commit will be rejected.
