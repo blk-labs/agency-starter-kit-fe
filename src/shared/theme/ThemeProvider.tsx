@@ -11,6 +11,24 @@ export interface ThemeContextValue {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+/**
+ * Root provider component that manages theme state (light/dark/system) and persists to localStorage.
+ * This component sets up the ThemeContext and provides theme management functionality to all
+ * child components. It initializes the theme from localStorage and automatically applies theme
+ * changes to the DOM. It also listens to system theme preference changes when theme is set to 'system'.
+ *
+ * @param {Object} props - The component props
+ * @param {React.ReactNode} props.children - React components to wrap with the ThemeProvider
+ * @returns {React.ReactElement} ThemeContext provider with value containing theme, resolvedTheme, and setTheme
+ *
+ * @note The selected theme is persisted to localStorage under the key 'theme' and will be
+ * restored on subsequent app loads.
+ *
+ * @example
+ * <ThemeProvider>
+ *   <App />
+ * </ThemeProvider>
+ */
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setThemeState] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");

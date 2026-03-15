@@ -18,6 +18,29 @@ const sizeMap: Record<
   full: "w-full",
 };
 
+/**
+ * A responsive container component that limits content width with responsive padding.
+ * Provides a centered, max-width wrapper for page content.
+ *
+ * @component
+ * @example
+ * // Default size (xl)
+ * <Container>
+ *   <p>Content here</p>
+ * </Container>
+ *
+ * @example
+ * // With custom size
+ * <Container size="md">
+ *   <p>Narrower content</p>
+ * </Container>
+ *
+ * @param {Object} props - Component props
+ * @param {"sm" | "md" | "lg" | "xl" | "2xl" | "full"} [props.size="xl"] - The maximum width size of the container
+ * @param {string} [props.className] - Additional CSS classes to apply
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - All standard HTML div attributes are supported
+ * @returns {React.ReactElement} The rendered container component
+ */
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ size = "xl", className, ...props }, ref) => {
     return (
