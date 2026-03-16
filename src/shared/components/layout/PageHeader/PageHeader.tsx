@@ -8,6 +8,38 @@ export interface PageHeaderProps
   actions?: React.ReactNode;
 }
 
+/**
+ * A header component for displaying page title, optional description, and action buttons.
+ * Responsive layout that stacks on mobile and arranges horizontally on larger screens.
+ *
+ * @component
+ * @example
+ * // Basic usage with title only
+ * <PageHeader title="Dashboard" />
+ *
+ * @example
+ * // With description
+ * <PageHeader
+ *   title="Products"
+ *   description="Manage your product catalog"
+ * />
+ *
+ * @example
+ * // With actions
+ * <PageHeader
+ *   title="Projects"
+ *   description="View and manage your projects"
+ *   actions={<button>Create Project</button>}
+ * />
+ *
+ * @param {Object} props - Component props
+ * @param {string} props.title - The main title text displayed in the page header
+ * @param {string} [props.description] - Optional descriptive text displayed below the title
+ * @param {React.ReactNode} [props.actions] - Optional ReactNode for buttons or other action controls
+ * @param {string} [props.className] - Additional CSS classes to apply
+ * @param {React.HTMLAttributes<HTMLElement>} props - All standard HTML element attributes are supported
+ * @returns {React.ReactElement} The rendered page header component
+ */
 export function PageHeader({
   title,
   description,
