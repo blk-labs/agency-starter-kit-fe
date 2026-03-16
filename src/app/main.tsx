@@ -4,10 +4,9 @@ import '@/styles/globals.css';
 import App from './App';
 import { Toaster } from 'react-hot-toast';
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  createRoot(rootElement).render(
-    <StrictMode>
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <ThemeProvider>
       <App />
       <Toaster
         gutter={12}
