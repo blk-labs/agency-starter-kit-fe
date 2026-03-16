@@ -2,71 +2,63 @@
 
 - This is a React starter kit designed for reusability and scalability.
 
-## Architecture Structure
+## Tech Decisions
 
-- Architectural structure of the starter kit.
+- **Framework**: React 19 + Vite for fast development and build times.
+- **Language**: TypeScript for static typing and better developer experience.
+- **Styling**: Tailwind CSS for utility-first styling.
+- **UI Component Explorer**: Storybook for building and testing UI components in isolation.
+- **Code Quality**: ESLint and Prettier for linting and formatting. Husky, lint-staged, and Commitlint for enforcing commit conventions and pre-commit checks.
+- **Package Manager**: Yarn.
 
-### Root Directory
+## Setup Instructions
 
-- **.env.\* files**: Environment configuration files (local, staging, production).
+1. **Clone the repository:**
 
-### Source Directory (`src/`)
+   ```bash
+   git clone <repository-url>
+   ```
 
-The source code follows a **modular architecture** organized by features
+2. **Install dependencies:**
 
-#### `app/` — App Bootstrap & Global Config
+   ```bash
+   yarn install
+   ```
 
-- **`App.tsx`**: The root application component.
-- **`main.tsx`**: The entry point of the application.
-- **`routes.tsx`**: Centralized route definitions.
-- **`providers/`**: Global providers (React Query, Theme, Store).
-- **`router/`**: App-level router setup.
+3. **Start the development server:**
 
-#### `modules/` — Feature-Based Modules
+   ```bash
+   yarn dev
+   ```
 
-Each module is a feature with its own pages, components, hooks, API layer, and utilities:
+## Scripts Explanation
 
-- **`auth/`**: Authentication feature (login, register, forgot password).
-- **`dashboard/`**: Dashboard feature.
-- **`wallet/`**: Wallet feature.
+- `yarn dev`: Starts the Vite development server.
+- `yarn build`: Compiles TypeScript and builds the production bundle with Vite.
+- `yarn lint`: Runs ESLint to find and fix problems in the code.
+- `yarn preview`: Locally previews the production build.
+- `yarn storybook`: Starts the Storybook development server on port 6006.
+- `yarn build-storybook`: Builds the Storybook for production.
+- `yarn prepare`: Sets up Husky git hooks.
 
-Each module follows this internal structure:
+## Architecture Summary
 
-```bash
-module/
-├── pages/          # Route-level page components
-├── components/     # Module-specific UI components
-├── layouts/        # Module-specific layouts
-├── hooks/          # Module-specific custom hooks
-├── api/            # API calls and types for this module
-├── utils/          # Module-specific utilities
-└── index.ts        # Public exports (barrel file)
-```
+This starter kit is built upon a **Modular Feature-Based Architecture**, thoughtfully designed to scale and maintain long-term code quality.
 
-#### `shared/` — Reusable Across Modules
+## Folder Explanation
 
-Contains reusable code that is shared across multiple feature modules:
+The key directories governing our source structure are:
 
-- **`components/common/`**: Generic UI components (Button, Input, Modal).
-- **`components/layout/`**: Layout components (AppShell, Sidebar, PageContainer).
-- **`components/feedback/`**: Feedback components (Spinner, ErrorState).
-- **`hooks/`**: Shared custom hooks (useDebounce, usePagination, etc.).
-- **`api/`**: Base API client, Axios instance, interceptors, and query keys.
-- **`constants/`**: App-wide constants.
-- **`types/`**: Global TypeScript types.
-- **`utils/`**: Shared utility functions.
-- **`config/`**: Environment and app configuration.
+- `src/app/`: Core application initialization, routing, and global abstractions.
+- `src/modules/`: Feature-sliced directories (e.g., `auth/`, `dashboard/`), encapsulating their respective routing, hooks, sub-components, and feature-specific state logic.
+- `src/shared/`: Generic components, utilities, and integrations universally utilized across feature-modules.
+- `src/assets/`: Static assets like images and fonts.
+- `src/stories/`: Storybook component stories.
+- `src/styles/`: Global styles and Tailwind configuration.
+- `docs/`: Project documentation, including comprehensive architecture guides.
+- `public/`: Static files served directly without processing.
 
-#### `assets/` — Static Assets
-
-- **`images/`**: Image files.
-- **`icons/`**: Icon files.
-
-#### `styles/` — Global Styles
-
-- **`globals.css`**: Global stylesheet and CSS configuration.
-- **`variables.css`**: CSS custom properties / design tokens.
-
+For a comprehensive guide, view the full [Architecture Documentation](./docs/architecture.md).
 
 ## Commit Format
 
