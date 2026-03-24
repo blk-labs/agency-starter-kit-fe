@@ -16,9 +16,7 @@ This directory contains the entry points and global configurations for the appli
 
 - **`App.tsx`**: The root application component that wraps the global providers and router.
 - **`main.tsx`**: The entry point of the React application where the DOM is mounted.
-- **`routes.tsx`**: Centralized route definitions for the entire application.
 - **`providers/`**: Global context providers (e.g., React Query, Theme, Redux/Zustand Store).
-- **`router/`**: App-level router configuration and setup.
 
 ### `modules/` — Feature-Based Modules
 
