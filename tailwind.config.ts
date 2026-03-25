@@ -19,12 +19,15 @@ const config: Config = {
         },
         secondary: {
           500: "#8b5cf6",
+          600: "#7c3aed",
         },
         success: {
           500: "#22c55e",
+          600: "#16a34a",
         },
         danger: {
           500: "#ef4444",
+          600: "#dc2626",
         },
         neutral: {
           50: "#fafafa",
@@ -38,6 +41,8 @@ const config: Config = {
           800: "#262626",
           900: "#171717",
         },
+        background: "#fafafa",
+        muted: "#f5f5f5",
       },
 
       fontSize: {
