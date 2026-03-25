@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@/styles/globals.css';
 import App from './App';
-import { ThemeProvider } from '@/shared/theme/ThemeProvider';
+// import { ThemeProvider } from '@/shared/theme/ThemeProvider';
 import { Toaster } from 'react-hot-toast';
 
 const rootElement = document.getElementById('root');
