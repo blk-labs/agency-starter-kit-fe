@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useTheme } from "../useTheme";
-import type { ThemeToggleProps } from "./ThemeToggle.types";
+import { useState } from 'react';
+import { useTheme } from '../useTheme';
+import type { ThemeToggleProps } from './ThemeToggle.types';
 
 const options = [
-  { value: "light", label: "Light", icon: "☀️" },
-  { value: "dark", label: "Dark", icon: "🌙" },
-  { value: "system", label: "System", icon: "💻" },
+  { value: 'light', label: 'Light', icon: '☀️' },
+  { value: 'dark', label: 'Dark', icon: '🌙' },
+  { value: 'system', label: 'System', icon: '💻' },
 ] as const;
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
@@ -15,9 +15,11 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   const active = options.find((o) => o.value === theme) ?? options[2];
 
   return (
-    <div className={`relative inline-block ${className ?? ""}`}>
+    <div className={`relative inline-block ${className ?? ''}`}>
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setOpen((v) => !v);
+        }}
         className="flex items-center gap-2 rounded-md border px-3 py-2 text-sm"
       >
         <span>{active.icon}</span>
@@ -34,7 +36,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
                 setOpen(false);
               }}
               className={`flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-muted ${
-                theme === opt.value ? "font-semibold" : ""
+                theme === opt.value ? 'font-semibold' : ''
               }`}
             >
               <span>{opt.icon}</span>
