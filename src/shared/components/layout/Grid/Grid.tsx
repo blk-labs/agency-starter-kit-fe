@@ -1,6 +1,30 @@
 import React, { forwardRef } from "react";
 import { classNames } from "../../utils/classNames";
 
+/**
+ * @component Grid
+ * A responsive grid layout component with configurable columns and gap spacing.
+ *
+ * @param {Object} props - Grid component props (extends HTMLDivElement attributes)
+ * @param {number} [props.cols] - Number of columns: 1 | 2 | 3 | 4 | 5 | 6 | 12 (default: 1)
+ * @param {string} [props.gap] - Gap size between items: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+ * @param {React.ReactNode} [props.children] - Grid items
+ * @param {string} [props.className] - Additional CSS classes
+ * @returns {React.ReactElement} Grid container element
+ *
+ * @example
+ * <Grid cols={3} gap="md">
+ *   <Card>Item 1</Card>
+ *   <Card>Item 2</Card>
+ *   <Card>Item 3</Card>
+ * </Grid>
+ *
+ * @example
+ * <Grid cols={2} gap="lg">
+ *   <div>Left column</div>
+ *   <div>Right column</div>
+ * </Grid>
+ */
 export interface GridProps
   extends React.HTMLAttributes<HTMLDivElement> {
   cols?: 1 | 2 | 3 | 4 | 5 | 6 | 12;
