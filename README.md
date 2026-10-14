@@ -31,6 +31,24 @@
    yarn dev
    ```
 
+## Environment Variables
+
+This project uses Vite's environment variable system. All client-side variables must be prefixed with `VITE_`.
+
+1. **Create a local environment file:**
+   Copy `.env.example` to `.env.local` to start developing.
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. **Environment File Hierarchy:**
+   - `.env.local`: Used for local development (git-ignored). Use this for your personal API keys and local overrides.
+   - `.env.staging`: Used for the staging environment.
+   - `.env.production`: Used for the production environment.
+
+> **Note**: Environment variables are validated at runtime using Zod in `src/shared/utils/env.ts`.
+
 ## Scripts Explanation
 
 - `yarn dev`: Starts the Vite development server.

@@ -48,6 +48,9 @@ export default [
 
       // Prevent unsafe Fast Refresh exports
       'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
+
+      // Enforce no explicit any
+      '@typescript-eslint/no-explicit-any': 'error',
     },
   },
 

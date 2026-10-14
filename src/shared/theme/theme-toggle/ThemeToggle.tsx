@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useTheme } from "../useTheme";
-import type { ThemeToggleProps } from "./ThemeToggle.types";
+import { useState } from 'react';
+import { useTheme } from '../useTheme';
+import type { ThemeToggleProps } from './ThemeToggle.types';
 
 /**
  * @component ThemeToggle
@@ -17,9 +17,9 @@ import type { ThemeToggleProps } from "./ThemeToggle.types";
  * return <ThemeToggle className="ml-4" />;
  */
 const options = [
-  { value: "light", label: "Light", icon: "☀️" },
-  { value: "dark", label: "Dark", icon: "🌙" },
-  { value: "system", label: "System", icon: "💻" },
+  { value: 'light', label: 'Light', icon: '☀️' },
+  { value: 'dark', label: 'Dark', icon: '🌙' },
+  { value: 'system', label: 'System', icon: '💻' },
 ] as const;
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
@@ -29,7 +29,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   const active = options.find((o) => o.value === theme) ?? options[2];
 
   return (
-    <div className={`relative inline-block ${className ?? ""}`}>
+    <div className={`relative inline-block ${className ?? ''}`}>
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-2 rounded-md border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-700"
